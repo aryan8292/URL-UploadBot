@@ -15,6 +15,38 @@ Config.UPDATE_CHANNEL = Config.UPDATES_CHANNEL
 
 @Client.on_message(filters.command(["help"]))
 async def help_user(bot, update):
+    if Config.JOIN_CHANNEL is not None:
+        try:
+            user = await c.get_chat_member(Config.UPDATES_CHANNEL, m.chat.id)
+            if user.status == "kicked":
+                await c.send_message(
+                    chat_id=m.chat.id,
+                    text="Sorry Sir, You are Banned to use me. Contact my [👥 Support Group](https://t.me/hxsupport).",
+                    parse_mode="markdown",
+                    disable_web_page_preview=True
+                )
+                return
+        except UserNotParticipant:
+            await c.send_message(
+                chat_id=m.chat.id,
+                text="**Please Join My Updates Channel to use this Bot!**\n\nDue to Overload, Only Channel Subscribers can use the Bot!",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton("🤖 Join Updates Channel", url=f"https://t.me/{Config.UPDATES_CHANNEL}")
+                        ]
+                    ]
+                ),
+                parse_mode="markdown"
+            )
+            return
+        except Exception:
+            await c.send_message(
+                chat_id=m.chat.id,
+                text="Something went Wrong. Contact my [👥 Support Group](https://t.me/HxSupport).",
+                parse_mode="markdown",
+                disable_web_page_preview=True)
+            return
     await bot.send_message(
         chat_id=update.chat.id,
         text=Translation.HELP_USER,
