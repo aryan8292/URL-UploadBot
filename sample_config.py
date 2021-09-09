@@ -12,6 +12,8 @@ class Config(object):
 
     # Username of channel for force sub (without @)..
     UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL")
+    
+    JOIN_CHANNEL = "HXBOTS"
 
     # Array to store users who are authorized to use the bot
     AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "").split())
