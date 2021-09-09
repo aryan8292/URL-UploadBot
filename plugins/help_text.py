@@ -10,6 +10,7 @@ from translation import Translation
 from pyrogram import Client, filters
 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, UsernameNotOccupied, ChatAdminRequired, PeerIdInvalid
 
 Config.UPDATE_CHANNEL = Config.UPDATES_CHANNEL
 
