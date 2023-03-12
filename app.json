@@ -17,7 +17,7 @@
   ],
   "success_url": "http://t.me/Hx_URLuploadBot",
   "website": "https://github.com/oVo-HxBots",
-  "repository": "https://github.com/oVo-HxBots/URL-UploadBot",
+  "repository": "https://github.com/aryan8292/URL-UploadBot",
 
   "env": {
     "WEBHOOK": {
@@ -63,7 +63,7 @@
   "formation": {
      "worker": {
        "quantity": 1,
-       "size": "free"
+       "size": "eco"
      }
   }
 }
